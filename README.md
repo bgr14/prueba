@@ -1,82 +1,42 @@
-![Syntax Status](https://github.com/openemr/openemr/workflows/Syntax/badge.svg?branch=master)
-![Styling Status](https://github.com/openemr/openemr/workflows/Styling/badge.svg?branch=master)
-![Testing Status](https://github.com/openemr/openemr/workflows/Test/badge.svg?branch=master)
+# About
+This module/service will provide the necessary template engine to create a Patient Summary CCD.
+CCD's can be generated from the Onsite Patient Portal or the Carecoordination Module.
+## Prepare
+* If not already completed, you must install/initialize the CCM features by going to the Modules->Manage Modules top menu then click Unregistered tab and install the necessary components.
+* Add any appropriate settings like granting Access Control for the appropriate users. Menu item: Modules->Manage Modules->Access Control->General->Care Coordination.
+* Ignore any errors that do not throw you back to command prompt when using npm install as some libs need to be compiled and is verbose about it.
+## Updating
+Whenever there are new versions or updates, be sure to navigate into the ccdaservice directory and run:
+- npm i --production
 
-[![Backers on Open Collective](https://opencollective.com/openemr/backers/badge.svg)](#backers) [![Sponsors on Open Collective](https://opencollective.com/openemr/sponsors/badge.svg)](#sponsors)
+This will ensure the lastest libraries are installed.
+## Ubuntu Setup
+* Latest version tested is node v14.0
 
-# OpenEMR
+If node is not already installed then do the following:
+- cd ~
+- apt-get remove --purge nodejs npm // Ensures clean install and will allow chance to cleanup.
+- curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+- sudo apt-get install -y nodejs
 
-[OpenEMR](https://open-emr.org) is a Free and Open Source electronic health records and medical practice management application. It features fully integrated electronic health records, practice management, scheduling, electronic billing, internationalization, free support, a vibrant community, and a whole lot more. It runs on Windows, Linux, Mac OS X, and many other platforms.
+Navigate to: openemr/ccdaservice and run the following to install requires dependencies.
+- sudo npm install --production
+## Windows Setup
+* Download and install nodejs for your windows version.
+  - Latest version tested is node v12.18.2
+* Ensure system variable NODE_PATH is set i.e %USERPROFILE%\AppData\Roaming\npm\node_modules.
 
-### Contributing
-
-OpenEMR is a leader in healthcare open source software and comprises a large and diverse community of software developers, medical providers and educators with a very healthy mix of both volunteers and professionals.  [Join us and learn how to start contributing today!](https://open-emr.org/wiki/index.php/FAQ#How_do_I_begin_to_volunteer_for_the_OpenEMR_project.3F)
-
-> Already comfortable with git? Check out [CONTRIBUTING.md](CONTRIBUTING.md) for quick setup instructions
-
-### Support
-
-Community and Professional support can be found [here](https://open-emr.org/wiki/index.php/OpenEMR_Support_Guide).
-
-Extensive documentation and forums can be found on the [OpenEMR website](https://open-emr.org).
-
-### Reporting Issues and Bugs
-
-Report these on the [Issue Tracker](https://github.com/openemr/openemr/issues). If you are unsure if it is an issue/bug, then always feel free to use the [Forum](https://community.open-emr.org/) and [Chat](https://www.open-emr.org/chat/).
-
-
-### Reporting Security Vulnerabilities
-
-Send an email to brady.g.miller@gmail.com . If possible, please encrypt your email via PGP with this [public key](https://keybase.io/bradymiller/pgp_keys.asc?fingerprint=8a93ddec0e320d5eb8a7994827def05b1a8a6d4f).
-
-### API
-
-Check out [API_README.md](API_README.md)
-
-### Docker
-
-Check out [DOCKER_README.md](DOCKER_README.md)
-
-### FHIR
-
-Check out [FHIR_README.md](FHIR_README.md)
-
-### For Developers
-
-If using OpenEMR directly from the code repository, then the following commands will build OpenEMR (Node.js version 10.* or 12.* is required) :
-```shell
-composer install --no-dev
-npm install
-npm run build
-composer dump-autoload -o
-```
-
-### Contributors
-
-This project exists thanks to all the people who contribute. [[Contribute]](CONTRIBUTING.md).
-<a href="https://github.com/openemr/openemr/graphs/contributors"><img src="https://opencollective.com/openemr/contributors.svg?width=890" /></a>
-
-### Backers
-
-Thank you to all our backers! 🙏 [[Become a backer](https://opencollective.com/openemr#backer)]
-
-<a href="https://opencollective.com/openemr#backers" target="_blank"><img src="https://opencollective.com/openemr/backers.svg?width=890"></a>
-
-### Sponsors
-
-Support this project by becoming a sponsor. Your logo will show up here with a link to your website. [[Become a sponsor](https://opencollective.com/openemr#sponsor)]
-
-<a href="https://opencollective.com/openemr/sponsor/0/website" target="_blank"><img src="https://opencollective.com/openemr/sponsor/0/avatar.svg"></a>
-<a href="https://opencollective.com/openemr/sponsor/1/website" target="_blank"><img src="https://opencollective.com/openemr/sponsor/1/avatar.svg"></a>
-<a href="https://opencollective.com/openemr/sponsor/2/website" target="_blank"><img src="https://opencollective.com/openemr/sponsor/2/avatar.svg"></a>
-<a href="https://opencollective.com/openemr/sponsor/3/website" target="_blank"><img src="https://opencollective.com/openemr/sponsor/3/avatar.svg"></a>
-<a href="https://opencollective.com/openemr/sponsor/4/website" target="_blank"><img src="https://opencollective.com/openemr/sponsor/4/avatar.svg"></a>
-<a href="https://opencollective.com/openemr/sponsor/5/website" target="_blank"><img src="https://opencollective.com/openemr/sponsor/5/avatar.svg"></a>
-<a href="https://opencollective.com/openemr/sponsor/6/website" target="_blank"><img src="https://opencollective.com/openemr/sponsor/6/avatar.svg"></a>
-<a href="https://opencollective.com/openemr/sponsor/7/website" target="_blank"><img src="https://opencollective.com/openemr/sponsor/7/avatar.svg"></a>
-<a href="https://opencollective.com/openemr/sponsor/8/website" target="_blank"><img src="https://opencollective.com/openemr/sponsor/8/avatar.svg"></a>
-<a href="https://opencollective.com/openemr/sponsor/9/website" target="_blank"><img src="https://opencollective.com/openemr/sponsor/9/avatar.svg"></a>
-
-### License
-
-[GNU GPL](LICENSE)
+Navigate to: openemr/ccdaservice and run the following from an elevated PowerShell or CMD.exe (run as Administrator):
+- npm install --global --production windows-build-tools
+- npm install --production
+### Use
+* CCDA service must be enabled in OpenEMR's menu Globals->Connectors.
+* This service will automatically start on demand when required by OpenEMR.
+### Developing
+* Note that these scripts run in strict mode so javascript will hold you very much accountable with how objects and variables are handled.
+* For now, node modules are run local to service directory so all support dependecies are installed there.
+### Tools
+* The nodejs ccda service now starts on demand.
+#### License
+   	    Copyright 2018-2019 sjpadgett@gmail.com
+        https://github.com/openemr/openemr/blob/master/LICENSE GNU General Public License 3
